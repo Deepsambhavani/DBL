@@ -1,0 +1,78 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏆 Tournament Bracket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar navbar-dark glass-nav mb-4">
+    <div class="container-fluid justify-content-center">
+        <button class="btn btn-warning btn-sm position-absolute end-0 me-3" onclick="flipCoin()">
+            <i class="fas fa-coins"></i> Toss Coin
+        </button>
+        <a href="/" class="btn btn-sm btn-outline-light position-absolute start-0 ms-3"><i class="fas fa-arrow-left"></i> Exit</a>
+        <span class="navbar-brand mb-0 h1">🏸 Live Bracket</span>
+    </div>
+</nav>
+
+<div class="container-fluid px-4">
+    <div class="row" style="min-height: 80vh;">
+        
+        <div class="col-md-3 bracket-col" id="col-qf">
+            <h5 class="round-title">Quarter Finals</h5>
+            <div class="match-card" id="match-q1"><div id="q1-c"></div><button class="btn btn-score" onclick="openModal('q1', 's1')">Score</button></div>
+            <div class="match-card" id="match-q2"><div id="q2-c"></div><button class="btn btn-score" onclick="openModal('q2', 's1')">Score</button></div>
+            <div class="match-card" id="match-q3"><div id="q3-c"></div><button class="btn btn-score" onclick="openModal('q3', 's2')">Score</button></div>
+            <div class="match-card" id="match-q4"><div id="q4-c"></div><button class="btn btn-score" onclick="openModal('q4', 's2')">Score</button></div>
+        </div>
+
+        <div class="col-md-3 bracket-col justify-content-around" id="col-sf">
+            <h5 class="round-title">Semi Finals</h5>
+            <div class="match-card" id="match-s1"><div id="s1-c"></div><button class="btn btn-score" onclick="openModal('s1', 'f1')">Score Semi</button></div>
+            <div class="match-card" id="match-s2"><div id="s2-c"></div><button class="btn btn-score" onclick="openModal('s2', 'f1')">Score Semi</button></div>
+        </div>
+
+        <div class="col-md-3 bracket-col justify-content-center" id="col-final">
+            <h5 class="round-title">Grand Final</h5>
+            <div class="match-card winner-glow" id="match-f1" style="transform: scale(1.1);">
+                <div class="text-center mb-2 text-warning"><i class="fas fa-trophy"></i> Championship Match</div>
+                <div id="f1-c">
+                    </div>
+                <button class="btn btn-warning w-100 fw-bold mt-3" onclick="openModal('f1', 'winner')">Crown Champion</button>
+            </div>
+        </div>
+
+        <div class="col-md-3 bracket-col justify-content-center">
+            <div class="text-center animate__animated animate__fadeIn">
+                <h3 class="text-warning mb-4">🏆 CHAMPION</h3>
+                <div class="match-card text-center py-5">
+                    <h1 class="display-5 fw-bold" id="champion-name">?</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="scoreModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background: #2d3436; color: white;">
+            <div class="modal-header border-secondary"><h5 class="modal-title">Match Result</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div>
+            <div class="modal-body text-center">
+                <div class="row fw-bold mb-3"><div class="col-4"></div><div class="col-4 text-info" id="modal-p1-name"></div><div class="col-4 text-warning" id="modal-p2-name"></div></div>
+                <div class="row mb-2"><div class="col-4 pt-2">Set 1</div><div class="col-4"><input type="number" class="form-control text-center" id="s1-p1" min="0" max="30"></div><div class="col-4"><input type="number" class="form-control text-center" id="s1-p2"min="0" max="30"></div></div>
+                <div class="row mb-2"><div class="col-4 pt-2">Set 2</div><div class="col-4"><input type="number" class="form-control text-center" id="s2-p1" min="0" max="30"></div><div class="col-4"><input type="number" class="form-control text-center" id="s2-p2"min="0" max="30"></div></div>
+                <div class="row mb-2"><div class="col-4 pt-2">Set 3</div><div class="col-4"><input type="number" class="form-control text-center" id="s3-p1" min="0" max="30"></div><div class="col-4"><input type="number" class="form-control text-center" id="s3-p2"min="0" max="30"></div></div>
+            </div>
+            <div class="modal-footer border-secondary"><button type="button" class="btn btn-success w-100" onclick="saveScore()">Save Result</button></div>
+        </div>
+    </div>
+</div> 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/templates.js"></script>
+</body>
+</html>

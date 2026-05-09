@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏸 Badminton Pro League</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="fas fa-shuttlecock text-primary"></i> DBL 2026</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" onclick="showSection('home')"><i class="bi bi-house-door-fill"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="showSection('history')"><i class="bi bi-clock-history"></i> History</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="showSection('about')"><i class="bi bi-info-circle"></i> Rules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div id="home" class="app-section active">
+            <div class="glass-card text-center">
+                <h2 class="fw-bold mb-3">🏆 Team Registration</h2>
+                <p class="text-muted" >Add teams below. We need up to 8 for the bracket. <br></p>
+                
+                <div id="team-list-container" class="text-start mb-4">
+                    </div>
+
+                <div class="d-flex justify-content-center gap-2">
+                    <button class="btn btn-success" onclick="addTeamInput()">
+                        <i class="fas fa-plus"></i> Add Team
+                    </button>
+                    <button class="btn btn-primary shadow" onclick="validateAndStart()">
+                        🚀 Generate Bracket
+                    </button>
+                </div>
+                <div class="mt-2 text-muted small" id="team-count-display">Teams: 0 / 8</div>
+            </div>
+        </div>
+
+        <div id="history" class="app-section">
+            <div class="glass-card">
+                <h3 class="mb-1 text-center history-title">📜 Match History</h3>
+                <p class="text-center text-muted mb-4" style="font-size:0.9rem;">All recorded tournament matches</p>
+
+                <div id="history-summary" class="history-stats-row mb-4" style="display:none;">
+                    <div class="hist-stat-box">
+                        <div class="hist-stat-num" id="total-matches">0</div>
+                        <div class="hist-stat-label">Total Matches</div>
+                    </div>
+                    <div class="hist-stat-box">
+                        <div class="hist-stat-num" id="latest-champ">—</div>
+                        <div class="hist-stat-label">Latest Champion</div>
+                    </div>
+                </div>
+
+                <div id="history-search-bar" class="mb-3" style="display:none;">
+                    <input type="text" id="history-filter" class="form-control" placeholder="🔍  Filter by player or team name..." oninput="filterHistory()">
+                </div>
+
+                <div class="table-responsive history-table-wrap">
+                    <table class="table align-middle history-table" id="history-main-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>📅 Date</th>
+                                <th>🏆 Winner</th>
+                                <th>😓 Runner Up</th>
+                                <th>🎯 Score</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body">
+                            <tr><td colspan="6" class="text-center py-4">
+                                <span class="spinner-border spinner-border-sm text-warning me-2"></span> Loading match history…
+                            </td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="history-empty" class="text-center py-5" style="display:none;">
+                    <div style="font-size:3rem;">🏸</div>
+                    <p class="mt-2" style="color:#ccc;">No matches recorded yet.<br>Start a tournament to see results here!</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="about" class="app-section">
+            <div class="glass-card text-center mb-3">
+                <h1 class="display-4 fw-bold about-title">🏸 Deep Badminton League</h1>
+                <p class="lead" style="color:#f0c96e;">Dynamic Team Management System &middot; DBL 2026</p>
+            </div>
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <div class="rule-icon">🎯</div>
+                    <h5>Scoring System</h5>
+                    <ul>
+                        <li>Matches are played best of <strong>3 sets</strong>.</li>
+                        <li>Each set is played to <strong>21 points</strong>.</li>
+                        <li>A player must win by <strong>2 clear points</strong>.</li>
+                        <li>If the score reaches 29-29, the next point wins (<strong>30 is the cap</strong>).</li>
+                        <li>The side winning a rally adds a point to its score.</li>
+                    </ul>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">🏟️</div>
+                    <h5>Court &amp; Service</h5>
+                    <ul>
+                        <li>Court size: <strong>13.4m x 6.1m</strong> (doubles) / <strong>5.18m</strong> wide (singles).</li>
+                        <li>Net height: <strong>1.55m</strong> at posts, <strong>1.524m</strong> at centre.</li>
+                        <li>Service must be hit <strong>below the server's waist</strong>.</li>
+                        <li>The shuttle must land in the <strong>diagonally opposite</strong> service box.</li>
+                        <li>Only <strong>one fault</strong> in service is allowed - second fault loses the rally.</li>
+                    </ul>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">🪶</div>
+                    <h5>Shuttle &amp; Equipment</h5>
+                    <ul>
+                        <li>A shuttlecock has <strong>16 feathers</strong> (or synthetic equivalent).</li>
+                        <li>Shuttle weight: <strong>4.74 - 5.50 grams</strong>.</li>
+                        <li>Racket max length: <strong>680mm</strong>; width: <strong>230mm</strong>.</li>
+                        <li>Players must wear <strong>non-marking shoes</strong> on court.</li>
+                        <li>Shuttle speed varies with <strong>altitude and temperature</strong>.</li>
+                    </ul>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">⚡</div>
+                    <h5>During Play</h5>
+                    <ul>
+                        <li>A rally is won when the shuttle lands <strong>inside</strong> the opponent's court.</li>
+                        <li>Hitting the shuttle <strong>twice</strong> (double hit) loses the rally.</li>
+                        <li>Touching the <strong>net or posts</strong> with racket or body is a fault.</li>
+                        <li>The shuttle must not be <strong>caught or slung</strong> with the racket.</li>
+                        <li>Players switch ends after each set, and in the 3rd set at <strong>11 points</strong>.</li>
+                    </ul>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">🔄</div>
+                    <h5>Lets &amp; Faults</h5>
+                    <ul>
+                        <li>A <strong>let</strong> is called when play is interrupted unexpectedly.</li>
+                        <li>The server must <strong>not delay</strong> service unreasonably.</li>
+                        <li>Stepping on the boundary line during service is a <strong>fault</strong>.</li>
+                        <li>Shuttle stuck in net on service = <strong>let</strong>; during play = fault.</li>
+                        <li>A player must not <strong>obstruct or distract</strong> an opponent.</li>
+                    </ul>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">🏅</div>
+                    <h5>DBL Tournament Format</h5>
+                    <ul>
+                        <li>Up to <strong>8 teams</strong> enter the bracket.</li>
+                        <li>Teams are <strong>randomly seeded</strong> before the quarter-finals.</li>
+                        <li>A coin toss decides <strong>who serves first</strong> in each match.</li>
+                        <li>Winners advance; losers are <strong>eliminated</strong> (single elimination).</li>
+                        <li>The last team standing is crowned <strong>DBL Champion 🏆</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/index.js"></script>
+   
+</body>
+</html> z

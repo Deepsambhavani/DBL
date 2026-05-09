@@ -1,0 +1,367 @@
+
+        body { 
+            /* background-image: url('/static/images/bdm3.jpg') !important;
+            background-position: center; background-repeat: no-repeat;
+            background-size: cover;  */
+             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('/static/images/bdm.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', sans-serif; 
+            padding-top: 80px; 
+            min-height: 100vh; 
+            color: white;
+            overflow-x: hidden;
+                }
+        
+        .navbar 
+        { box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background:rgba(48, 126, 228, 0.892)!important;
+            border: 1px solid black;
+            
+        
+        }
+        .nav-link { cursor: pointer; font-weight: 600; color: white !important;}
+        .nav-link.active { color: #f0c96e !important; }
+        
+        .app-section { display: none; animation: fadeIn 0.4s; }
+        .app-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .glass-card {
+            /* background: aliceblue; */
+            background: rgba(255, 255, 255, 0.1) !important; 
+            backdrop-filter: none !important;               
+            -webkit-backdrop-filter: none !important;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 30px;
+            margin-bottom: 20px;
+            margin-top: 50px;    
+            }
+        .text-muted { color: #ccc !important; 
+                font-family: cursive !important;
+                font-weight: 500 !important;
+            
+            }
+        .form-control {
+            background-color:rgba(10, 12, 16, 0.6) !important; /* Very light tint */
+            border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Orange border */
+            color: ghostwhite !important; /* Makes typed text white */
+
+
+            }
+
+        /* Change style when clicking inside the box */
+        .form-control:focus {   
+            background-color: rgba(10, 12, 16, 0.8) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+            outline: none !important;
+        }
+        .form-control::placeholder {
+             color: rgba(255, 255, 255, 0.5) !important; /* Semi-transparent white */
+             opacity: 1; /* Required for Firefox */
+        }   
+
+
+        .input-group-text{
+            color: wheat !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(0, 242, 255, 0.5); /* Subtle glow */
+            background:rgba(255, 255, 255, 0.1) !important; /* Light transparent background */
+        }
+        /* TEAM LIST ANIMATION */
+        .team-row-item { animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+/* ==============================
+   HISTORY TABLE STYLES
+   ============================== */
+.history-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff, #f0c96e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.history-stats-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.hist-stat-box {
+    background: rgba(10,10,16,0.80);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 14px 28px;
+    text-align: center;
+    min-width: 140px;
+}
+.hist-stat-num {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #f0c96e;
+    line-height: 1;
+}
+.hist-stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 4px;
+}
+
+.history-table-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(10,10,14,0.82);
+}
+
+.history-table {
+    margin-bottom: 0;
+    background: transparent;
+    color: white;
+}
+.history-table thead tr {
+    background: rgba(15,15,20,0.95);
+    border-bottom: 2px solid rgba(240,201,110,0.45);
+}
+.history-table thead th {
+    color: #f0c96e;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 14px 16px;
+    border: none;
+}
+.history-row {
+    background: rgba(12,12,18,0.75);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: background 0.2s;
+}
+.history-row:hover {
+    background: rgba(30,30,40,0.92) !important;
+}
+.history-row:nth-child(even) {
+    background: rgba(18,18,26,0.80);
+}
+.history-table td {
+    padding: 13px 16px;
+    vertical-align: middle;
+    border: none;
+    color: rgba(255,255,255,0.92);
+}
+
+.match-num {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    font-weight: 600;
+}
+.match-date {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+}
+.winner-cell {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    color: #6dff9f;
+    font-size: 0.95rem;
+}
+.trophy-icon { font-size: 1rem; }
+.runner-cell {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+}
+.score-pill {
+    display: inline-block;
+    padding: 3px 11px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+.score-w { background: rgba(109,255,159,0.15); color: #6dff9f; border: 1px solid rgba(109,255,159,0.3); }
+.score-l { background: rgba(255,100,100,0.12); color: #ff8080; border: 1px solid rgba(255,100,100,0.3); }
+.score-sep { color: rgba(255,255,255,0.3); font-weight: 700; margin: 0 2px; }
+.result-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: rgba(240,201,110,0.15);
+    color: #f0c96e;
+    border: 1px solid rgba(240,201,110,0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==============================
+   ABOUT / RULES SECTION
+   ============================== */
+.about-title {
+    background: linear-gradient(135deg, #fff 30%, #f0c96e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.6rem;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+.rule-card {
+    background: rgba(10,10,16,0.82);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 22px 24px;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+.rule-card:hover {
+    transform: translateY(-4px);
+    background: rgba(20,20,30,0.92);
+    border-color: rgba(240,201,110,0.5);
+}
+.rule-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.rule-card h5 {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #f0c96e;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(240,201,110,0.25);
+}
+.rule-card ul {
+    padding-left: 18px;
+    margin: 0;
+}
+.rule-card ul li {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+.rule-card ul li strong {
+    color: #f0c96e;
+}
+/* ==============================
+   HISTORY TABLE - DARK FIX
+   Override Bootstrap's white table bg
+   ============================== */
+
+/* Kill Bootstrap's white table variable */
+.history-table {
+    --bs-table-bg: transparent !important;
+    --bs-table-striped-bg: transparent !important;
+    --bs-table-hover-bg: transparent !important;
+    --bs-table-color: rgba(255,255,255,0.92) !important;
+    background-color: transparent !important;
+    color: rgba(255,255,255,0.92) !important;
+}
+
+/* Force the whole wrap to be dark */
+.history-table-wrap {
+    background: rgba(10, 10, 16, 0.88) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+/* Force every cell dark */
+.history-table td,
+.history-table th {
+    background-color: transparent !important;
+    color: inherit !important;
+    border-color: rgba(255,255,255,0.07) !important;
+}
+
+/* Dark rows */
+.history-row {
+    background-color: rgba(12, 12, 20, 0.0) !important;
+}
+.history-row:nth-child(even) {
+    background-color: rgba(255,255,255,0.04) !important;
+}
+.history-row:hover {
+    background-color: rgba(255,255,255,0.08) !important;
+}
+
+/* Header row */
+.history-table thead tr {
+    background-color: rgba(8, 8, 14, 0.95) !important;
+}
+.history-table thead th {
+    background-color: transparent !important;
+    color: #f0c96e !important;
+    border-bottom: 2px solid rgba(240,201,110,0.45) !important;
+}
+.schedule-input-zone {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(0, 242, 255, 0.3);
+    border-radius: 8px;
+}
+
+.hud-input {
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    font-size: 0.9rem;
+}
+
+.battle-card {
+    background: linear-gradient(145deg, rgba(20, 20, 25, 0.9), rgba(10, 10, 12, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 3px solid #00f2ff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.battle-card::after {
+    content: "UPCOMING";
+    position: absolute;
+    top: 10px;
+    right: -25px;
+    background: #00f2ff;
+    color: #000;
+    font-size: 0.6rem;
+    font-weight: bold;
+    padding: 2px 30px;
+    transform: rotate(45deg);
+}
+
+.vs-divider {
+    color: #00f2ff;
+    font-style: italic;
+    font-weight: 900;
+    margin: 0 15px;
+    opacity: 0.6;
+}
+
+.btn-cyan {
+    background: #00f2ff;
+    color: #000;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-cyan:hover {
+    background: #00d4e0;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+}

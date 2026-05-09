@@ -19,4 +19,6 @@ A streamlined, high-performance web application designed to manage badminton tou
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/Deepsambhavani/DBL.git](https://github.com/Deepsambhavani/DBL.git)
-   cd your-repo-name
+   cd DBL
+
+  

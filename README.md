@@ -1,6 +1,6 @@
-# 🏆 DBL 2026 | Tactical Badminton League Manager
+# 🏆 DBL 2026 |  Badminton League Manager
 
-A streamlined, high-performance web application designed to manage badminton tournaments. DBL 2026 focuses on a "Deep Stealth" tactical aesthetic, providing a Head-Up Display (HUD) experience for tournament organizers and players.
+A streamlined, high-performance web application designed to manage badminton tournaments. DBL focuses on a "Deep Stealth" tactical aesthetic, providing a Head-Up Display (HUD) experience for tournament organizers and players.
 
 ## 🚀 Key Features
 * **Dynamic Registration:** Interactive team and player entry with real-time validation.
